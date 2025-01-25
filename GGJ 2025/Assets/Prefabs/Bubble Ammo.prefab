@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8258966705675254543}
   - component: {fileID: 2336408660644327665}
   - component: {fileID: 6100268536262532400}
+  - component: {fileID: -1957109278957648592}
   m_Layer: 0
   m_Name: Bubble Ammo
   m_TagString: Untagged
@@ -120,7 +121,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -169,5 +170,17 @@ MonoBehaviour:
   speed: 10
   damage_amount: 0
   range: 6
-  ricochet: 1
+  ricochet: 0
   barrel_direction: {fileID: 0}
+--- !u!114 &-1957109278957648592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649910036717786324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74dad220b68a44f5194e71cdb3665fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

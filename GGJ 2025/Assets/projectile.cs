@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class projectile : MonoBehaviour
@@ -39,20 +40,14 @@ public class projectile : MonoBehaviour
             }
         }
     }
+    
 
-
-    void OnCollisionEnter2D(Collision2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
 
-       
+        Debug.Log(destroy_on_collision);
+        Debug.Log(ricochet);
         //var health_script = other.gameObject.GetComponent<Health>();
-        if (ricochet)
-        {
-
-            Vector2 object_normal = other.contacts[0].normal;
-            direction = Vector2.Reflect(direction, object_normal).normalized;
-            rb.linearVelocity = direction * speed;
-        }
         // if (health_script != null && damage_amount > 0)
         // {
         //
@@ -60,14 +55,12 @@ public class projectile : MonoBehaviour
         //     Destroy(gameObject);
         // }
 
-        else if (destroy_on_collision == true && !ricochet)
+        if (destroy_on_collision  && !ricochet)
         {
+            Debug.Log("in destory");
             Destroy(gameObject);
 
         }
-
-
-
 
     }
 }
