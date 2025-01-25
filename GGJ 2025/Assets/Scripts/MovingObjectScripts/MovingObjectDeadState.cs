@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace MovingObjectScripts
 {
     public class MovingObjectDeadState : MovingObjectBaseState
@@ -14,6 +16,7 @@ namespace MovingObjectScripts
 
         public override void ExitState(MovingObjectStateManager movingObjectStateManager)
         {
+            Debug.Log("In Exit state");
             throw new System.NotImplementedException();
         }
     }

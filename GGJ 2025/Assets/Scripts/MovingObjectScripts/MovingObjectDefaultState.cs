@@ -28,7 +28,8 @@ namespace MovingObjectScripts
 
         public override void ExitState(MovingObjectStateManager movingObjectStateManager)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("In Exit state");
+            
         }
     }
 }

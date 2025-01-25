@@ -5,12 +5,24 @@ namespace MovingObjectScripts
     public class MovingObjectBubbledState : MovingObjectBaseState
     {
         private MovingObject _movingObject;
+        private Rigidbody2D bubble_rb;
+        private Rigidbody2D character_rb;
+        private GameObject _bubble;
+        private GameObject _boba;
+        
         
         public override void EnterState(MovingObjectStateManager movingObjectStateManager)
         {
+            _bubble = movingObjectStateManager.GetBubble();
+            _boba = movingObjectStateManager.GetBoba();
             _movingObject = movingObjectStateManager.GetMovingObject();
+            _boba.GetComponent<CircleCollider2D>().radius = _movingObject.bubbleColliderSize;
             _movingObject.SetCurrentSpeed(_movingObject.bubbledSpeed);
-            movingObjectStateManager.GetRigidbody2D().gravityScale = 0f;
+            character_rb =  movingObjectStateManager.GetRigidbody2D();
+            character_rb.gravityScale = 0;
+            movingObjectStateManager.GetBubble().SetActive(true);
+           
+            
         }
 
         public override void UpdateState(MovingObjectStateManager movingObjectStateManager)
@@ -20,12 +32,22 @@ namespace MovingObjectScripts
         
         void BubbledStatePositionUpdater()
         {
-            _movingObject.transform.position += new Vector3(_movingObject.GetCurrentSpeed()* Time.deltaTime, _movingObject.GetCurrentSpeed() * Time.deltaTime, 0);
+            if (character_rb != null)
+            {
+                character_rb.linearVelocity = new Vector2(_movingObject.GetCurrentSpeed(), _movingObject.GetCurrentSpeed());
+            }
+
+            
+
         }
 
         public override void ExitState(MovingObjectStateManager movingObjectStateManager)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("In Exit state");
+            movingObjectStateManager.GetBubble().SetActive(false);
+            _boba.GetComponent<CircleCollider2D>().radius = _movingObject.characterColliderSize;
+            character_rb.gravityScale = 5;
+            
         }
     }
 }

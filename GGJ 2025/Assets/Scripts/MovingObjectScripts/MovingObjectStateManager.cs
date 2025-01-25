@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = System.Object;
 
 namespace MovingObjectScripts
 {
@@ -11,7 +12,10 @@ namespace MovingObjectScripts
         private MovingObjectDefaultState _movingObjectDefaultState;
         private MovingObjectDeadState _movingObjectDeadState;
         private MovingObject _movingObject;
+        private GameObject _Boba;
         private Rigidbody2D _rigidbody2D;
+        private GameObject _bubble;
+        private Collider2D _collider;
 
         public void Awake()
         {
@@ -20,6 +24,13 @@ namespace MovingObjectScripts
             _movingObjectBubbledState = new MovingObjectBubbledState();
             _movingObject = GetComponent<MovingObject>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+            _Boba = gameObject;
+            Transform childTransform = transform.Find("Bubble");
+            if (childTransform != null)
+            {
+                _bubble = childTransform.gameObject;
+            }
         }
 
         public void Start()
@@ -35,6 +46,10 @@ namespace MovingObjectScripts
 
         public void SwitchState(MovingObjectStates state)
         {
+            if (_currentState != null)
+            {
+                _currentState.ExitState(this);
+            }
             _currentState = state switch
             {
                 MovingObjectStates.DefaultState => _movingObjectDefaultState,
@@ -54,6 +69,26 @@ namespace MovingObjectScripts
         public Rigidbody2D GetRigidbody2D()
         {
             return _rigidbody2D;
+        }
+
+        public GameObject GetBubble()
+        {
+            return _bubble;
+        }
+
+        public Collider2D GetCollider()
+        {
+            return _collider;
+        }
+
+        public GameObject GetBoba()
+        {
+            return _Boba;
+        }
+
+        public MovingObjectBaseState getCurrentState()
+        {
+            return _currentState;
         }
     }
 }
