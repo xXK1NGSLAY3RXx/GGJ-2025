@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -168,6 +168,6 @@ MonoBehaviour:
   destroy_on_collision: 1
   speed: 10
   damage_amount: 0
-  range: 0
-  ricochet: 0
+  range: 6
+  ricochet: 1
   barrel_direction: {fileID: 0}
