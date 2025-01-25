@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace MovingObjectScripts
@@ -19,6 +20,19 @@ namespace MovingObjectScripts
 
         private void Update()
         {
+        }
+
+        public void SwitchState(MovingObjectStates state)
+        {
+            _currentState = state switch
+            {
+                MovingObjectStates.DefaultState => _movingObjectDefaultState,
+                MovingObjectStates.MovingState => _movingObjectBubbledState,
+                MovingObjectStates.BubbledState => _movingObjectBubbledState,
+                _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
+            };
+
+            _currentState.EnterState(this);
         }
     }
 }
