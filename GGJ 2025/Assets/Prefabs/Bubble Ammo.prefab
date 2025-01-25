@@ -169,5 +169,5 @@ MonoBehaviour:
   speed: 10
   damage_amount: 0
   range: 0
-  ricochet: 1
+  ricochet: 0
   barrel_direction: {fileID: 0}
