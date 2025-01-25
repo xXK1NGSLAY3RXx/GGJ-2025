@@ -5,21 +5,32 @@ namespace MovingObjectScripts
 {
     public class MovingObjectStateManager : MonoBehaviour
     {
+        public MovingObjectStates startingState;
         private MovingObjectBaseState _currentState;
-        private MovingObjectBubbledState _movingObjectBubbledState = new MovingObjectBubbledState();
-        private MovingObjectDefaultState _movingObjectDefaultState = new MovingObjectDefaultState();
-        private MovingObjectDeadState _movingObjectDeadState = new MovingObjectDeadState();
-        
-        
-        private void Start()
-        {
-            _currentState = _movingObjectDeadState;
-            _movingObjectDefaultState.EnterState(this);
+        private MovingObjectBubbledState _movingObjectBubbledState;
+        private MovingObjectDefaultState _movingObjectDefaultState;
+        private MovingObjectDeadState _movingObjectDeadState;
+        private MovingObject _movingObject;
+        private Rigidbody2D _rigidbody2D;
 
+        public void Awake()
+        {
+            _movingObjectDefaultState = new MovingObjectDefaultState();
+            _movingObjectDeadState = new MovingObjectDeadState();
+            _movingObjectBubbledState = new MovingObjectBubbledState();
+            _movingObject = GetComponent<MovingObject>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        private void Update()
+        public void Start()
+        {   
+            SwitchState(startingState);
+            _currentState.EnterState(this);
+        }
+
+        public void Update()
         {
+            _currentState.UpdateState(this);
         }
 
         public void SwitchState(MovingObjectStates state)
@@ -33,6 +44,16 @@ namespace MovingObjectScripts
             };
 
             _currentState.EnterState(this);
+        }
+        
+        public MovingObject GetMovingObject()
+        {
+            return _movingObject;
+        }
+        
+        public Rigidbody2D GetRigidbody2D()
+        {
+            return _rigidbody2D;
         }
     }
 }

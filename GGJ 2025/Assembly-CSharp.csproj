@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/MovingObjectScripts/MovingObjectDefaultState.cs" />
+    <Compile Include="Assets/Scripts/MovingObjectScripts/MovingObject.cs" />
     <Compile Include="Assets/Scripts/CameraFollower.cs" />
     <Compile Include="Assets/Scripts/MovingObjectScripts/MovingObjectDeadState.cs" />
     <Compile Include="Assets/spikes.cs" />
@@ -54,7 +55,6 @@
     <Compile Include="Assets/PlayerControl.cs" />
     <Compile Include="Assets/Scripts/MovingObjectScripts/MovingObjectStateManager.cs" />
     <Compile Include="Assets/Scripts/MovingObjectScripts/MovingObjectBaseState.cs" />
-    <Compile Include="Assets/MovingObjectScript.cs" />
     <Compile Include="Assets/projectile.cs" />
     <Compile Include="Assets/PlayerShooting.cs" />
     <Compile Include="Assets/Scripts/MovingObjectScripts/MovingObjectBubbledState.cs" />
