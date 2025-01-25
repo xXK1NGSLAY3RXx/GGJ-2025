@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7554011560876123100}
   - component: {fileID: 5602446147752453311}
   - component: {fileID: 6914605245926898999}
-  - component: {fileID: 689363724767111015}
   - component: {fileID: 5496103221281818234}
+  - component: {fileID: 2622897325588784379}
   m_Layer: 0
   m_Name: boba
   m_TagString: Boba
@@ -154,20 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &689363724767111015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6709689463229870785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e9a984d7c034493bfc8dd01ff31d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkingSpeed: 2
-  bubbledSpeed: 0.5
 --- !u!114 &5496103221281818234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +167,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 0
+--- !u!114 &2622897325588784379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709689463229870785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e9a984d7c034493bfc8dd01ff31d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingSpeed: 3
+  bubbledSpeed: 3
