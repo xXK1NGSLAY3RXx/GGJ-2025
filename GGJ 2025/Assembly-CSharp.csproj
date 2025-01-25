@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/CameraFollower.cs" />
     <Compile Include="Assets/spikes.cs" />
+    <Compile Include="Assets/PlayerControl.cs" />
+    <Compile Include="Assets/MovingObjectScript.cs" />
     <Compile Include="Assets/stateManager.cs" />
   </ItemGroup>
   <ItemGroup>
