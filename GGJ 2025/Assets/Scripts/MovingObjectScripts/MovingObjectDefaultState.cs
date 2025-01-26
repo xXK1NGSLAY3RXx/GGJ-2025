@@ -19,7 +19,7 @@ namespace MovingObjectScripts
 
         void DefaultPositionUpdater()
         {
-            _movingObject.transform.position += new Vector3(_movingObject.GetCurrentSpeed() * Time.deltaTime, 0, 0);
+            _movingObject.transform.position += new Vector3(_movingObject.GetCurrentSpeed() * Time.deltaTime * _movingObject.getDirection(), 0, 0);
         }
         
         

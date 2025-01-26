@@ -9,14 +9,18 @@ namespace MovingObjectScripts
         private Rigidbody2D character_rb;
         private GameObject _bubble;
         private GameObject _boba;
+        private float bubbleTime;
+       
         
         
         
         public override void EnterState(MovingObjectStateManager movingObjectStateManager)
         {
+            
             _bubble = movingObjectStateManager.GetBubble();
             _boba = movingObjectStateManager.GetBoba();
             _movingObject = movingObjectStateManager.GetMovingObject();
+            bubbleTime = _movingObject.bubbleTime;
             _boba.GetComponent<CircleCollider2D>().radius = _movingObject.bubbleColliderSize;
             _movingObject.SetCurrentSpeed(_movingObject.bubbledSpeed);
             character_rb =  movingObjectStateManager.GetRigidbody2D();
@@ -28,14 +32,25 @@ namespace MovingObjectScripts
 
         public override void UpdateState(MovingObjectStateManager movingObjectStateManager)
         {
-            BubbledStatePositionUpdater();
+            Debug.Log(bubbleTime);
+            bubbleTime -= Time.deltaTime;
+            if (bubbleTime >= 0)
+            {
+                BubbledStatePositionUpdater();
+            }
+            else
+            {
+                movingObjectStateManager.SwitchState(MovingObjectStates.DefaultState);
+            }
+
+            
         }
         
         void BubbledStatePositionUpdater()
         {
-            if (character_rb != null)
+            if (character_rb != null )
             {
-                character_rb.linearVelocity = new Vector2(_movingObject.GetCurrentSpeed(), _movingObject.GetCurrentSpeed());
+                character_rb.linearVelocity = new Vector2(_movingObject.GetCurrentSpeed() * _movingObject.getDirection(), _movingObject.GetCurrentSpeed());
             }
 
             
