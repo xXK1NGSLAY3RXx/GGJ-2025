@@ -50,7 +50,7 @@ namespace MovingObjectScripts
         {
             if (character_rb != null )
             {
-                character_rb.linearVelocity = new Vector2(_movingObject.GetCurrentSpeed() * _movingObject.getDirection(), _movingObject.GetCurrentSpeed());
+                character_rb.transform.position += new Vector3(_movingObject.GetCurrentSpeed() * Time.deltaTime, _movingObject.GetCurrentSpeed() * Time.deltaTime, 0);
             }
 
             

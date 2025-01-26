@@ -7,6 +7,7 @@ namespace DefaultNamespace
             public const string Boba = "Boba";
             public const string JumpPad = "JumpPad";
             public const string Blower = "Blower";
+            public const string BlockWithJumpPad = "BlockWithJumpPad";
         }
     }
 }
