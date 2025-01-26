@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Boba
   - Environment
+  - Wall
+  - Coin
+  - JumpPad
   layers:
   - Default
   - TransparentFX

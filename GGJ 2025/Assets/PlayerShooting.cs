@@ -5,6 +5,7 @@ public class PlayerShooting : MonoBehaviour
     public static PlayerShooting instance;
     public int max_energy_amount;
     public GameObject bubbleAmmo;
+    public GameObject stingerAmmo;
     public Transform projectileSpawnPoint;
     public enum Guns
     {
