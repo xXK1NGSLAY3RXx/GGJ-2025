@@ -14,6 +14,8 @@ namespace PusherScripts
 
         public bool isBlower = true;
         
+        public float adjustDistance = 0.2f;
+        
         
         void Start()
         {
