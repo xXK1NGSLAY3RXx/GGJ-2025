@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 public class StateManager : MonoBehaviour
 {
     private bool isSceneRestarting = false;
+    private bool levelCompleted = false; // Tracks if the level is completed
 
     void Update()
     {
-        if (!isSceneRestarting)
+        if (!isSceneRestarting && !levelCompleted)
         {
             // Find all objects with the "Boba" tag
             GameObject[] bobaObjects = GameObject.FindGameObjectsWithTag("Boba");
@@ -24,6 +25,12 @@ public class StateManager : MonoBehaviour
         }
     }
 
+    public void MarkLevelCompleted()
+    {
+        levelCompleted = true; // Stop the StateManager from restarting the scene
+        Debug.Log("Level completed. Scene will not restart.");
+    }
+
     private System.Collections.IEnumerator RestartSceneAfterDelay()
     {
         Debug.Log("All Bobas destroyed. Restarting scene...");
@@ -32,4 +39,3 @@ public class StateManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneName); // Reload the scene
     }
 }
-

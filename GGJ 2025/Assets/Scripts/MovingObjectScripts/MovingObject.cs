@@ -5,9 +5,11 @@ public class MovingObject : MonoBehaviour
 {
     public float walkingSpeed = 5.0f;
     public float bubbledSpeed = 5.0f;
-    public float characterColliderSize = 0.45f;
-    public float bubbleColliderSize = 2;
+    public float characterColliderSize ;
+    public float bubbleColliderSize ;
     private float _currentSpeed = 0.0f;
+  
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
