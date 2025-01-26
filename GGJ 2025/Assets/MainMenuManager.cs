@@ -8,10 +8,20 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        // Load Level 1 scene
-        SceneManager.LoadScene("level1-1");
-    }
+        // Load the next scene based on the current scene's build index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
 
+        // Check if the next scene index is valid
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels to load. This is the last level.");
+        }
+    }
     public void ShowHowToPlay()
     {
         // Hide Main Menu and show How to Play panel
