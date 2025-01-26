@@ -50,7 +50,7 @@ namespace MovingObjectScripts
         {
             if (character_rb != null )
             {
-                character_rb.transform.position += new Vector3(_movingObject.GetCurrentSpeed() * Time.deltaTime, _movingObject.GetCurrentSpeed() * Time.deltaTime, 0);
+                character_rb.transform.position += new Vector3(_movingObject.GetCurrentSpeed() * Time.deltaTime * _movingObject.getDirection(), _movingObject.GetCurrentSpeed() * Time.deltaTime, 0);
             }
 
             
