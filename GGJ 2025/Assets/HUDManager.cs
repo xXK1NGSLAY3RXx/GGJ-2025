@@ -22,7 +22,7 @@ public class HUDManager : MonoBehaviour
         UpdateBobaCounter();
 
         // Set the level number
-        levelDisplayText.text = "Level: " + (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+        levelDisplayText.text = "Level: " + (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
 
         // Initialize coin counter
         UpdateCoinCounter();
