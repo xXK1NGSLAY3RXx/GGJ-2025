@@ -5,11 +5,12 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour
 {
     public Image catImage; // Reference to the cat image (UI Image)
-    public TextMeshProUGUI bobaCounterText; // Reference to the count text (e.g., 0/2)
-    public TextMeshProUGUI levelDisplayText; // Reference to the level text (e.g., Level: 1)
-
+    public TextMeshProUGUI bobaCounterText; // Reference to the Boba count text
+    public TextMeshProUGUI levelDisplayText; // Reference to the level display text
+    public TextMeshProUGUI coinCounterText; // Reference to the coin count text
     private int remainingBobaObjects;
     private int totalBobaObjects;
+    private int coinScore = 0; // Track the coin score
 
     void Start()
     {
@@ -23,17 +24,20 @@ public class HUDManager : MonoBehaviour
         // Set the level number
         levelDisplayText.text = "Level: " + (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
 
-        // Optional: Set a default cat image
-        if (catImage != null)
-        {
-            // Here, you can assign a sprite to the cat image if necessary
-        }
+        // Initialize coin counter
+        UpdateCoinCounter();
     }
 
     public void OnBobaDestroyed()
     {
         remainingBobaObjects--;
         UpdateBobaCounter();
+    }
+
+    public void OnCoinCollected(int value)
+    {
+        coinScore += value; // Increase the coin score
+        UpdateCoinCounter(); // Update the coin counter in the UI
     }
 
     private void UpdateBobaCounter()
@@ -46,6 +50,18 @@ public class HUDManager : MonoBehaviour
         else
         {
             Debug.LogError("Boba Counter Text is not assigned in HUDManager!");
+        }
+    }
+
+    private void UpdateCoinCounter()
+    {
+        if (coinCounterText != null)
+        {
+            coinCounterText.text = "" + coinScore;
+        }
+        else
+        {
+            Debug.LogError("Coin Counter Text is not assigned in HUDManager!");
         }
     }
 }
