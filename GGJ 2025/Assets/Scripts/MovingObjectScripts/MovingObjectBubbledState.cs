@@ -11,6 +11,7 @@ namespace MovingObjectScripts
         private GameObject _boba;
         
         
+        
         public override void EnterState(MovingObjectStateManager movingObjectStateManager)
         {
             _bubble = movingObjectStateManager.GetBubble();
@@ -43,9 +44,9 @@ namespace MovingObjectScripts
 
         public override void ExitState(MovingObjectStateManager movingObjectStateManager)
         {
+            _boba.GetComponent<CircleCollider2D>().radius = _movingObject.characterColliderSize;
             Debug.Log("In Exit state");
             movingObjectStateManager.GetBubble().SetActive(false);
-            _boba.GetComponent<CircleCollider2D>().radius = _movingObject.characterColliderSize;
             character_rb.gravityScale = 5;
             
         }
