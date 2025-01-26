@@ -27,17 +27,16 @@ public class EndCollision : MonoBehaviour
             // Check if all Boba objects have reached the target
             if (bobaCount >= totalBobaObjects)
             {
-                EndLevel();
+                LoadNextScene();
             }
         }
     }
 
-    private void EndLevel()
+    private void LoadNextScene()
     {
-        Debug.Log("All Boba objects reached the target. Level ended!");
+        Debug.Log("All Boba objects reached the target. Loading Scene 2!");
 
-        // Reload the current scene
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
+        // Load the scene named "Scene 2"
+        SceneManager.LoadScene("level 2");
     }
 }
